@@ -1,0 +1,39 @@
+:root {
+  --color-white: #FDFDFD;
+  --color-white-dark: #F4F4F4;
+  --color-gray-light: #DADADA;
+  --color-gray: #9C9C9C;
+  --color-gray-dark: #595959;
+  --color-black: #161616;
+  --color-accent: #22A0BC;
+
+  --text-size-title: 24px;
+  --text-size-desktop-headline: 20px;
+  --text-size-desktop-normal: 18px;
+  --text-size-desktop-small: 16px;
+  --text-size-desktop-caption: 14px;
+
+  --text-size-mobile-headline: 18px;
+  --text-size-mobile-normal: 16px;
+  --text-size-mobile-small: 14px;
+  --text-size-mobile-caption: 10px;
+}
+
+.container {
+  max-width: 1160px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type:none;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
