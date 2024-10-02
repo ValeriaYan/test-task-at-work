@@ -1,15 +1,19 @@
 import { Children, ReactElement, ReactNode } from "react"
 import './Dropdown.css'
+import useOutsideClick from "../../../hooks/outside-click"
 
 interface DropdownProps {
-  open: boolean
+  isOpen: boolean
+  closeMenu: () => void
   button: ReactNode
   menu: ReactNode[]
 }
 
-const Dropdown = ({ open, button, menu }: DropdownProps): ReactElement => {
+const Dropdown = ({ isOpen, button, menu, closeMenu }: DropdownProps): ReactElement => {
+  const ref = useOutsideClick(closeMenu);
+  
   return (
-    <div className={`dropdown ${open ? 'active' : ''}`}>
+    <div className={`dropdown ${isOpen ? 'active' : ''}`} ref={ref}>
       {button}
       <ul className="dropdown__list">
         {Children.map(menu, (child: ReactNode) => (

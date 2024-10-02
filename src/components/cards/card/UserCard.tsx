@@ -13,21 +13,25 @@ interface UserCardProps {
 
 const UserCard = ({ user }: UserCardProps): ReactElement => {
   const dispatch = useAppDispatch()
-  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   
+  const closeMenu = () => {
+    setMenuOpen(false)
+  }
+
   const setArchiveUser = () => {
     dispatch(archiveUser(user.id))
-    setDropdownOpen(false)
+    closeMenu()
   }
 
   const setActiveUser = () => {
     dispatch(activeUser(user.id))
-    setDropdownOpen(false)
+    closeMenu()
   }
 
   const setRemoveUser = () => {
     dispatch(removeUser(user.id))
-    setDropdownOpen(false)
+    closeMenu()
   }
 
   return (
@@ -43,9 +47,10 @@ const UserCard = ({ user }: UserCardProps): ReactElement => {
         </div>
       </div>
       <Dropdown 
-        open={dropdownOpen} 
+        closeMenu={closeMenu}
+        isOpen={menuOpen} 
         button={
-          <button className='dropdown__btn' onClick={() => setDropdownOpen(!dropdownOpen)}>
+          <button className='dropdown__btn' onClick={() => setMenuOpen(!menuOpen)}>
             <img src={menuIcon} alt="" />
           </button>}
         menu={user.active ? [
