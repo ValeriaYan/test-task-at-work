@@ -1,6 +1,6 @@
 import { ReactElement } from "react"
 import logo from '/img/logo.png'
-import user from '/img/user.jpg'
+import userImg from '/img/user.jpg'
 import heartIcon from '/svg/heart.svg'
 import notificationIcon from '/svg/notification.svg'
 import './Header.css'
@@ -8,8 +8,8 @@ import { Link } from "react-router-dom"
 
 const Header = (): ReactElement => {
   return (
-    <div className="header container">
-      <div className="header__body">
+    <div className="header">
+      <div className="header__body container">
         <div className="header__logo">
             <Link to={"/"}>
               <img src={logo} alt="" />
@@ -24,7 +24,7 @@ const Header = (): ReactElement => {
           </li>
           <li className="nav__item item item_user">
             <div className="item__img">
-              <img src={user} alt="" />
+              <img src={userImg} alt="" />
             </div>
             <p className="item__text">Ivan1234</p>
           </li>
