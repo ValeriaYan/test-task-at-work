@@ -5,6 +5,10 @@
   border-radius: 16px;
 }
 
+.user-card.archive {
+  filter: grayscale(100%);
+}
+
 .user-card__body {
   display: flex;
 }

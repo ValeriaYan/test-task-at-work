@@ -8,7 +8,7 @@ interface UserCardProps {
 
 const UserCard = ({ user }: UserCardProps) => {
   return (
-    <div className="user-card">
+    <div className={`user-card ${!user.active ? 'archive': ''}`}>
       <div className="user-card__body">
         <div className="user-card__img">
           <img src={userImg} alt="" />

@@ -13,7 +13,7 @@ export const fetchUsers = createAsyncThunk(
       }
 
       const data = await response.json();
-      return data;
+      return data.map((user: IUser ) => ({...user, active: true}));
 
     } catch(error) {
       if (error instanceof Error) {
@@ -28,24 +28,24 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     users: [] as IUser[],
-    archiveUsers: [] as IUser[],
     status: '',
     error: '',
   },
   reducers: {
     activeUser(state, action: PayloadAction<number>) {
-      const archivedUser = state.archiveUsers.find(user => user.id === action.payload)
-      archivedUser && state.users.push(archivedUser)
-      state.archiveUsers = state.archiveUsers.filter(user => user.id !== action.payload)
+      const user = state.users.find(user => user.id === action.payload)
+      if(user) {
+        user.active = true
+      }
     },
     archiveUser(state, action: PayloadAction<number>) {
-      const activeUser = state.users.find(user => user.id === action.payload)
-      activeUser && state.archiveUsers.push(activeUser)
-      state.users = state.users.filter(user => user.id !== action.payload)
+      const user = state.users.find(user => user.id === action.payload)
+      if(user) {
+        user.active = false
+      }
     },
     removeUser(state, action: PayloadAction<number>) {
       state.users = state.users.filter((user) => user.id !== action.payload);
-      state.archiveUsers = state.archiveUsers.filter((user) => user.id !== action.payload);
     },
   },
   extraReducers(builder) {
