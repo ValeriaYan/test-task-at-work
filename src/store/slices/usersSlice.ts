@@ -24,10 +24,33 @@ export const fetchUsers = createAsyncThunk(
   }
 )
 
+export const fetchUser = createAsyncThunk(
+  'users/fetchUser',
+  async (id: string, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+
+      if(!response.ok) {
+        throw new Error('Server Error!')
+      }
+
+      const data = await response.json();
+      return {...data, active: true};
+
+    } catch(error) {
+      if (error instanceof Error) {
+        return rejectWithValue(error.message);
+      }
+      return rejectWithValue(new Error('Error'))
+    }
+  }
+)
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
     users: [] as IUser[],
+    user: {} as IUser,
     status: '',
     error: '',
   },
@@ -58,6 +81,18 @@ const usersSlice = createSlice({
       state.users = action.payload;
     })
     .addCase(fetchUsers.rejected, (state, action) => {
+      state.status = 'rejected';
+      action.error.message ? state.error = action.error.message : state.error = '';
+    })
+    .addCase(fetchUser.pending, (state, action) => {
+      state.status = 'loading';
+      state.error = '';
+    })
+    .addCase(fetchUser.fulfilled, (state, action) => {
+      state.status = 'resolved';
+      state.user = action.payload;
+    })
+    .addCase(fetchUser.rejected, (state, action) => {
       state.status = 'rejected';
       action.error.message ? state.error = action.error.message : state.error = '';
     })

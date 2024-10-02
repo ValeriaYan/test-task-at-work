@@ -1,0 +1,14 @@
+.profile__body {
+  display: flex;
+  gap: 40px;
+}
+
+.back-btn {
+  display: flex;
+  padding: 20px 0;
+}
+
+.back-btn p {
+  color: var(--color-gray-dark);
+  margin-left: 8px;
+}

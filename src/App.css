@@ -52,6 +52,9 @@ ul {
 body {
   font-family: 'Manrope', sans-serif;
   background-color: var(--color-white-dark);
+  font-size: var(--text-size-small);
+  line-height: var(--line-height-small);
+  font-weight: 500;
 }
 
 .title {
@@ -66,12 +69,6 @@ body {
   font-weight: 600;
 }
 
-.text-small {
-  font-size: var(--text-size-small);
-  line-height: var(--line-height-small);
-  font-weight: 500;
-}
-
 .caption {
   font-size: var(--text-size-caption);
   line-height: var(--line-height-caption);
@@ -79,4 +76,8 @@ body {
 
 .main {
   padding-bottom: 60px;
+}
+
+a {
+  text-decoration: none;
 }

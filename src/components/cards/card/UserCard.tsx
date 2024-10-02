@@ -6,6 +6,7 @@ import { ReactElement, useState } from 'react'
 import Dropdown from '../../ui/dropdown/Dropdown'
 import { useAppDispatch } from '../../../hooks/redux-hooks'
 import { activeUser, archiveUser, removeUser } from '../../../store/slices/usersSlice'
+import { Link } from 'react-router-dom'
 
 interface UserCardProps {
   user: IUser
@@ -34,6 +35,7 @@ const UserCard = ({ user }: UserCardProps): ReactElement => {
     closeMenu()
   }
 
+
   return (
     <div className={`user-card ${!user.active ? 'archive': ''}`}>
       <div className="user-card__body">
@@ -42,7 +44,7 @@ const UserCard = ({ user }: UserCardProps): ReactElement => {
         </div>
         <div className="user-card__info">
           <div className="user-card__name headline">{user.username}</div>
-          <div className="user-card__company text-small">{user.company.name}</div>
+          <div className="user-card__company">{user.company.name}</div>
           <div className="user-card__city caption">{user.address.city}</div>
         </div>
       </div>
@@ -54,7 +56,9 @@ const UserCard = ({ user }: UserCardProps): ReactElement => {
             <img src={menuIcon} alt="" />
           </button>}
         menu={user.active ? [
-          <button>Редактировать</button>,
+          <Link to={`/profile/${user.id}`}>
+            <button>Редактировать</button>
+          </Link>,
           <button onClick={setArchiveUser}>Архивировать</button>,
           <button onClick={setRemoveUser}>Скрыть</button>
         ]: [
