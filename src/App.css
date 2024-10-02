@@ -76,3 +76,7 @@ body {
   font-size: var(--text-size-caption);
   line-height: var(--line-height-caption);
 }
+
+.main {
+  padding-bottom: 60px;
+}

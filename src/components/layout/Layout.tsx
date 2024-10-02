@@ -7,7 +7,7 @@ const Layout = (): ReactElement => {
     <>
       <div className="wrapper">
         <Header />
-        <main>
+        <main className="main">
           <Outlet />
         </main>
       </div>

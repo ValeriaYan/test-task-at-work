@@ -1,6 +1,8 @@
 .user-card {
+  position: relative;
   flex: 0 1 calc(33.34% - 62px);
   padding: 24px;
+
   background-color: var(--color-white);
   border-radius: 16px;
 }
@@ -11,6 +13,23 @@
 
 .user-card__body {
   display: flex;
+}
+
+.user-card .dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.dropdown__btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  transition: all ease 0.2s;
+}
+
+.dropdown__btn:hover {
+  transform: scale(1.1);
 }
 
 .user-card__img {
