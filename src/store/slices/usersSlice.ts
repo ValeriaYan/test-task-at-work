@@ -33,8 +33,9 @@ export const fetchUser = createAsyncThunk(
       if(!response.ok) {
         throw new Error('Server Error!')
       }
-
+      
       const data = await response.json();
+      console.log(data)
       return {...data, active: true};
 
     } catch(error) {

@@ -1,0 +1,35 @@
+.form {
+  width: 70%;
+}
+
+.form__field {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.field__label,
+.field__input {
+  display: block;
+  width: 100%;
+}
+
+.field__input {
+  padding: 10px 16px;
+  border-radius: 50px;
+  border: 2px solid var(--color-gray-light)
+}
+
+.field__input.error {
+  border: 2px solid red;
+}
+
+.field__label {
+  font-size: var(--text-size-normal);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.form__btn {
+  background-color: var(--color-black);
+  color: var(--color-white)
+}
