@@ -32,7 +32,7 @@ const Form = ({user, status}: FormProps): ReactElement => {
   };
 
   useEffect(() => {
-    if(status === 'resolved') {
+    if(status === 'resolved' && user) {
       setValue('name', user.name)
       setValue('username', user.username)
       setValue('email', user.email)

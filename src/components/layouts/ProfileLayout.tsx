@@ -1,22 +1,18 @@
 import { ReactElement, useEffect } from "react"
-import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks"
+import { useAppDispatch } from "../../hooks/redux-hooks"
 import { fetchUser } from "../../store/slices/usersSlice"
 import arrowIcon from '/svg/arrow-left.svg'
-import { Link, useParams } from "react-router-dom"
-import './ProfilePage.css'
-import Aside from "./components/aside/Aside"
-import Form from "./components/form/Form"
-import Loader from "../../components/ui/loader/Loader"
+import { Link, Outlet, useParams } from "react-router-dom"
+import './ProfileLayout.css'
+import Aside from "../../pages/profile/components/aside/Aside"
 
-const ProfilePage = (): ReactElement => {
+const ProfileLayout = (): ReactElement => {
   const { id } = useParams()
   const dispatch = useAppDispatch()
   
   useEffect(() => {
     id && dispatch(fetchUser(id))
   }, [dispatch])
-  
-  const {user, status} = useAppSelector(store => store.users)
 
   
   return (
@@ -28,13 +24,11 @@ const ProfilePage = (): ReactElement => {
       <div className="profile__body">
         <Aside />
         <div className="profile__content">
-          <h1 className="profile__title title">Данные профиля</h1>
-          {status === 'loading' && <Loader />}
-          {status === 'resolved' && <Form user={user} status={status}/>}
+          <Outlet />
         </div>
       </div>
     </section>
   )
 }
 
-export default ProfilePage
+export default ProfileLayout

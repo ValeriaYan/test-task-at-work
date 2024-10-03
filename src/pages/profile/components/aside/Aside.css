@@ -27,10 +27,17 @@
   padding-bottom: 12px;
   margin-top: 24px;
   border-bottom: 1px solid var(--color-gray-light);
+}
+
+.aside__link {
   color: var(--color-gray);
 }
 
-.aside__nav-item.active{
+.aside__link:hover {
+  color: var(--color-accent);
+}
+
+.aside__link.active{
   color: var(--color-black)
 }
 

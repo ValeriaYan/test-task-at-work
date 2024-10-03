@@ -53,7 +53,7 @@ const UserCard = ({ user }: UserCardProps): ReactElement => {
               <DropdownBtn onClick={() => setMenuOpen(!menuOpen)}/>
             }
             menu={user.active ? [
-              <Link to={`/profile/${user.id}`}>
+              <Link to={`/profile/${user.id}/data`}>
                 <button>Редактировать</button>
               </Link>,
               <button onClick={setArchiveUser}>Архивировать</button>,
