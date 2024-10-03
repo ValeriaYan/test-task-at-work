@@ -1,12 +1,12 @@
 import { IUser } from '../../../types/IUser'
 import userImg from '/img/user.jpg'
-import menuIcon from '/svg/dropdown-button.svg'
 import './UserCard.css'
 import { ReactElement, useState } from 'react'
 import Dropdown from '../../ui/dropdown/Dropdown'
 import { useAppDispatch } from '../../../hooks/redux-hooks'
 import { activeUser, archiveUser, removeUser } from '../../../store/slices/usersSlice'
 import { Link } from 'react-router-dom'
+import DropdownBtn from '../../ui/dropdown/DropdownBtn'
 
 interface UserCardProps {
   user: IUser
@@ -46,24 +46,23 @@ const UserCard = ({ user }: UserCardProps): ReactElement => {
           <div className="user-card__name headline">{user.username}</div>
           <div className="user-card__company">{user.company.name}</div>
           <div className="user-card__city caption">{user.address.city}</div>
+          <Dropdown 
+            closeMenu={closeMenu}
+            isOpen={menuOpen} 
+            button={
+              <DropdownBtn onClick={() => setMenuOpen(!menuOpen)}/>
+            }
+            menu={user.active ? [
+              <Link to={`/profile/${user.id}`}>
+                <button>Редактировать</button>
+              </Link>,
+              <button onClick={setArchiveUser}>Архивировать</button>,
+              <button onClick={setRemoveUser}>Скрыть</button>
+            ]: [
+              <button onClick={(setActiveUser)}>Активировать</button>
+            ]}/>
         </div>
       </div>
-      <Dropdown 
-        closeMenu={closeMenu}
-        isOpen={menuOpen} 
-        button={
-          <button className='dropdown__btn' onClick={() => setMenuOpen(!menuOpen)}>
-            <img src={menuIcon} alt="" />
-          </button>}
-        menu={user.active ? [
-          <Link to={`/profile/${user.id}`}>
-            <button>Редактировать</button>
-          </Link>,
-          <button onClick={setArchiveUser}>Архивировать</button>,
-          <button onClick={setRemoveUser}>Скрыть</button>
-        ]: [
-          <button onClick={(setActiveUser)}>Активировать</button>
-        ]}/>
     </div>
   )
 }

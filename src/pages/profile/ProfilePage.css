@@ -19,3 +19,17 @@
   padding: 40px;
   border-radius: 16px;
 }
+
+
+@media (max-width: 780px) {
+  .profile__body {
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 640px) {
+  .profile__content {
+    padding: 28px;
+  }
+  
+}

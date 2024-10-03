@@ -1,5 +1,19 @@
 .users__list {
-  display: flex;
-  gap: 20px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 1260px) {
+  .users__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 870px) {
+  .users__list {
+    gap: 20px;
+  }
 }

@@ -40,6 +40,32 @@
   margin-bottom: 8px;
 }
 
-.dropdown__item:hover {
-  background-color: var(--color-white-dark);
+.dropdown__item:hover button{
+  color: var(--color-accent)
+}
+
+.dropdown__btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.dropdown__btn path{
+  fill: var(--color-black)
+}
+
+.dropdown__btn:hover path{
+  fill: var(--color-accent)
+}
+
+@media (max-width: 1280px) {
+  .dropdown.active .dropdown__list {
+    left: -200%;
+  }
+}
+
+@media (max-width: 640px) {
+  .dropdown.active .dropdown__list{
+    width: 160px;
+  }
 }

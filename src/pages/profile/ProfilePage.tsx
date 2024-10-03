@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom"
 import './ProfilePage.css'
 import Aside from "./components/aside/Aside"
 import Form from "./components/form/Form"
-import Loader from "../../components/loader/Loader"
+import Loader from "../../components/ui/loader/Loader"
 
 const ProfilePage = (): ReactElement => {
   const { id } = useParams()

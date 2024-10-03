@@ -33,3 +33,29 @@
 .aside__nav-item.active{
   color: var(--color-black)
 }
+
+
+@media (max-width: 1000px) {
+  .profile__aside {
+    flex: 0 0 240px;
+  }
+
+  .aside__img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile__aside {
+    max-width: 100%;
+  }
+
+  .aside__img {
+    height: 187px;
+  }
+
+  .aside {
+    padding: 28px;
+  }
+}
+

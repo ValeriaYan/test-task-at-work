@@ -9,14 +9,17 @@
 
 .field__label,
 .field__input {
-  display: block;
+  box-sizing: border-box;
+  display: inline-block;
   width: 100%;
 }
+
 
 .field__input {
   padding: 10px 16px;
   border-radius: 50px;
-  border: 2px solid var(--color-gray-light)
+  border: 2px solid var(--color-gray-light);
+  outline: none;
 }
 
 .field__input.error {
@@ -31,5 +34,25 @@
 
 .form__btn {
   background-color: var(--color-black);
-  color: var(--color-white)
+  color: var(--color-white);
+  padding: 12px 42px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+}
+
+.form__error-msg {
+  color: red;
+}
+
+@media (max-width: 1280px) {
+  .form {
+    width: 100%;
+  }
+}
+
+@media(max-width: 640px) {
+  .form__btn {
+    width: 100%;
+  }
 }

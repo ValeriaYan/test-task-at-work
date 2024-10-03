@@ -36,7 +36,7 @@ const Form = ({user, status}: FormProps): ReactElement => {
       setValue('name', user.name)
       setValue('username', user.username)
       setValue('email', user.email)
-      setValue('city', user.address.city)
+      setValue('city', user.address?.city)
       setValue('phone', user.phone)
       setValue('company', user.company.name)
     }
@@ -90,7 +90,7 @@ const Form = ({user, status}: FormProps): ReactElement => {
         <input className={`field__input ${errors.company && 'error'}`} {...register("company", { required: 'Обязательное поле' })} type="text" name='company' id='company'/>
         {errors.company && <p className="form__error-msg">{errors.company.message}</p>}
       </div>
-      <button className="form__btn" type="submit">Отправить</button>
+      <button className="form__btn" type="submit">Сохранить</button>
       <Popup title={"Изменения сохранены"} isOpen={openPopup} setIsOpen={setOpenPopup} img={successIcon}/>
     </form>
   )

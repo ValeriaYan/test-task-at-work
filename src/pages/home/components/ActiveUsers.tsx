@@ -1,5 +1,5 @@
 import UserCardList from "../../../components/cards/cards-list/UserCardList"
-import Loader from "../../../components/loader/Loader"
+import Loader from "../../../components/ui/loader/Loader"
 import { useAppSelector } from "../../../hooks/redux-hooks"
 import './Users.css'
 

@@ -1,8 +1,6 @@
 .user-card {
-  position: relative;
-  flex: 0 1 calc(33.34% - 62px);
   padding: 24px;
-
+  max-width: 100%;
   background-color: var(--color-white);
   border-radius: 16px;
 }
@@ -15,21 +13,15 @@
   display: flex;
 }
 
+.user-card__info {
+  width: 100%;
+  position: relative;
+}
+
 .user-card .dropdown {
   position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.dropdown__btn {
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-  transition: all ease 0.2s;
-}
-
-.dropdown__btn:hover {
-  transform: scale(1.1);
+  top: 0;
+  right: 0;
 }
 
 .user-card__img {
@@ -46,14 +38,55 @@
 }
 
 .user-card__name {
+  white-space: nowrap;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--color-accent);
 }
 
 .user-card__company {
+  white-space: nowrap;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--color-gray-dark);
   margin-bottom: 40px;
 }
 
 .user-card__city {
   color: var(--color-gray);
+}
+
+@media (max-width: 870px) {
+  .user-card {
+    padding: 16px;
+  }
+  .user-card__body {
+    flex-direction: column;
+  }
+
+  .user-card__img {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 16px;
+  }
+
+  .user-card__company {
+    margin-bottom: 12px;
+  }
+
+}
+
+@media (max-width: 375px) {
+  .user-card__info {
+    max-width: 130px;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .dropdown__btn img {
+    width: 20px;
+  }
 }
