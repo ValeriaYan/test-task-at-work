@@ -40,7 +40,7 @@ const Form = ({user, status}: FormProps): ReactElement => {
       setValue('phone', user?.phone)
       setValue('company', user?.company?.name)
     }
-  }, [status])
+  }, [status, user])
 
   const {
     register,

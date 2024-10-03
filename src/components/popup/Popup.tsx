@@ -17,7 +17,7 @@ const Popup = ({title, img, isOpen, setIsOpen}: PopupProps): ReactElement => {
 
   useEffect(() => {
     setIsOpen(isOpen)
-  }, [isOpen]);
+  }, [isOpen, setIsOpen]);
 
   return (
     <div className={`overlay ${isOpen ? 'active' : ''}`}>
