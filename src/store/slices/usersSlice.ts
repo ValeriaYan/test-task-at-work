@@ -73,7 +73,7 @@ const usersSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(fetchUsers.pending, (state, action) => {
+    builder.addCase(fetchUsers.pending, (state) => {
       state.status = 'loading';
       state.error = '';
     })
@@ -85,7 +85,7 @@ const usersSlice = createSlice({
       state.status = 'rejected';
       action.error.message ? state.error = action.error.message : state.error = '';
     })
-    .addCase(fetchUser.pending, (state, action) => {
+    .addCase(fetchUser.pending, (state) => {
       state.status = 'loading';
       state.error = '';
     })

@@ -1,9 +1,9 @@
-import { ReactElement, SetStateAction, useEffect, useState } from "react"
+import { ReactElement, useEffect, useState } from "react"
 import './Form.css'
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useAppSelector } from "../../../../hooks/redux-hooks";
 import successIcon from '/img/success.png'
 import Popup from "../../../../components/popup/Popup";
+import { IUser } from "../../../../types/IUser";
 
 interface Inputs {
   name: string
@@ -14,8 +14,12 @@ interface Inputs {
   company: string
 }
 
-const Form = (): ReactElement => {
-  const {user, status} = useAppSelector(store => store.users)
+interface FormProps {
+  user: IUser
+  status: string
+}
+
+const Form = ({user, status}: FormProps): ReactElement => {
   const [openPopup, setOpenPopup] = useState(false)
 
   const defaultValues: Inputs = {

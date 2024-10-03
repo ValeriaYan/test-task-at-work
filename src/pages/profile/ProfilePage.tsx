@@ -6,14 +6,17 @@ import { Link, useParams } from "react-router-dom"
 import './ProfilePage.css'
 import Aside from "./components/aside/Aside"
 import Form from "./components/form/Form"
+import Loader from "../../components/loader/Loader"
 
 const ProfilePage = (): ReactElement => {
   const { id } = useParams()
   const dispatch = useAppDispatch()
-
+  
   useEffect(() => {
     id && dispatch(fetchUser(id))
   }, [dispatch])
+  
+  const {user, status} = useAppSelector(store => store.users)
 
   
   return (
@@ -26,7 +29,8 @@ const ProfilePage = (): ReactElement => {
         <Aside />
         <div className="profile__content">
           <h1 className="profile__title title">Данные профиля</h1>
-          <Form />
+          {status === 'loading' && <Loader />}
+          {status === 'resolved' && <Form user={user} status={status}/>}
         </div>
       </div>
     </section>
