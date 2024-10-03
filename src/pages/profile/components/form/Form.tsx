@@ -1,7 +1,9 @@
-import { ReactElement, useEffect } from "react"
+import { ReactElement, SetStateAction, useEffect, useState } from "react"
 import './Form.css'
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAppSelector } from "../../../../hooks/redux-hooks";
+import successIcon from '/img/success.png'
+import Popup from "../../../../components/popup/Popup";
 
 interface Inputs {
   name: string
@@ -14,6 +16,7 @@ interface Inputs {
 
 const Form = (): ReactElement => {
   const {user, status} = useAppSelector(store => store.users)
+  const [openPopup, setOpenPopup] = useState(false)
 
   const defaultValues: Inputs = {
     name: '',
@@ -45,7 +48,10 @@ const Form = (): ReactElement => {
   });
 
   const onSubmit: SubmitHandler<Inputs> = (data: any) => {
-    console.log(data)
+    setOpenPopup(true)
+    setTimeout(() => {
+      setOpenPopup(false)
+    }, 4000)
   }
   
   return (
@@ -81,6 +87,7 @@ const Form = (): ReactElement => {
         {errors.company && <p className="form__error-msg">{errors.company.message}</p>}
       </div>
       <button className="form__btn" type="submit">Отправить</button>
+      <Popup title={"Изменения сохранены"} isOpen={openPopup} setIsOpen={setOpenPopup} img={successIcon}/>
     </form>
   )
 }
