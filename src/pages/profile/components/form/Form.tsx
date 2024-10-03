@@ -33,12 +33,12 @@ const Form = ({user, status}: FormProps): ReactElement => {
 
   useEffect(() => {
     if(status === 'resolved' && user) {
-      setValue('name', user.name)
-      setValue('username', user.username)
-      setValue('email', user.email)
-      setValue('city', user.address?.city)
-      setValue('phone', user.phone)
-      setValue('company', user.company.name)
+      setValue('name', user?.name)
+      setValue('username', user?.username)
+      setValue('email', user?.email)
+      setValue('city', user?.address?.city)
+      setValue('phone', user?.phone)
+      setValue('company', user?.company?.name)
     }
   }, [status])
 
@@ -51,7 +51,7 @@ const Form = ({user, status}: FormProps): ReactElement => {
     defaultValues
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data: any) => {
+  const onSubmit: SubmitHandler<Inputs> = () => {
     setOpenPopup(true)
     setTimeout(() => {
       setOpenPopup(false)

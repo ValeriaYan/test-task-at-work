@@ -1,6 +1,7 @@
+import { ReactElement } from "react";
 import { TailSpin } from "react-loader-spinner";
 
-function Loader() {
+const Loader = (): ReactElement => {
   return (
     <TailSpin
       visible={true}
@@ -14,7 +15,7 @@ function Loader() {
         alignItems: "center",
         height: '100%'
       }}
-      />
+    />
   )
 }
 

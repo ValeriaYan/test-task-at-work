@@ -1,9 +1,10 @@
 import { ReactElement } from "react";
+import './ErrorPage.css'
 
 const ErrorPage = (): ReactElement => {
   return (
     <>
-      <p>error</p>
+      <h1 className="error-page container title">Такой страницы не существует</h1>
     </>
   )
 }

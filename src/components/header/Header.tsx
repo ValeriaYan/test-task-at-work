@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 
 const Header = (): ReactElement => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header__body container">
         <div className="header__logo">
             <Link to={"/"}>
@@ -30,7 +30,7 @@ const Header = (): ReactElement => {
           </li>
         </ul>
       </div>
-    </div>
+    </header>
   )
 }
 

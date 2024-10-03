@@ -35,7 +35,6 @@ export const fetchUser = createAsyncThunk(
       }
       
       const data = await response.json();
-      console.log(data)
       return {...data, active: true};
 
     } catch(error) {

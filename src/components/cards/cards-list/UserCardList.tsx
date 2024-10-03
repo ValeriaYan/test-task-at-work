@@ -1,3 +1,4 @@
+import { ReactElement } from "react"
 import { IUser } from "../../../types/IUser"
 import UserCard from "../card/UserCard"
 import './UserCardList.css'
@@ -6,7 +7,7 @@ interface UserCardListProps {
   users: IUser[]
 }
 
-const UserCardList = ({ users }: UserCardListProps) => {
+const UserCardList = ({ users }: UserCardListProps): ReactElement => {
   return (
     <div className="users__list">
       {users.map((user) => (

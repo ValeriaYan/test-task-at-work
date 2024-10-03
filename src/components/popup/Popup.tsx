@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useEffect } from "react";
+import { ReactElement, useEffect } from "react";
 import closeIcon from '/svg/close.svg'
 import './Popup.css'
 
